@@ -43,8 +43,10 @@
 
 					<!-- our test case naming does not follow Maven naming conventions -->
 					<includes>
-						<include>posters/neodymium/tests/**/*Test.java</include>
-						<include>posters/cucumber/tests/RunAllFeaturesTest.java</include>
+					    <!-- Neodymium test cases -->
+						<include>template/neodymium/tests/**/*Test.java</include>
+					    <!-- Cucumber test cases -->
+						<include>template/cucumber/tests/RunAllFeaturesTest.java</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore>
 					<argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
@@ -96,7 +98,7 @@
 	<!-- <threadCount>8</threadCount> -->
 	<!-- our test case naming does not follow Maven naming conventions -->
 	<!-- <includes> -->
-	<!-- <include>posters/cucumber/**/*Test.java</include> -->
+	<!-- <include>template/cucumber/**/*Test.java</include> -->
 	<!-- </includes> -->
 	<!-- <testFailureIgnore>true</testFailureIgnore> -->
 	<!-- <argLine>-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar</argLine> -->
