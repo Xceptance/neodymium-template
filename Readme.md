@@ -1,36 +1,38 @@
 # Introduction
 This repository is supposed to be used as template for test automation projects 
 
-## Hello World
-### Get your own copy
+# Getting familiar
+Please perform the Hello World first to get a first insight and feeling for test automation using Neodymium.
+Afterwards you are ready to deep dive into more complex scenarios. 
+Our [Neodymium-example](https://github.com/Xceptance/neodymium-example) project demonstrates all the cool stuff that's possible with Neodymium.
+Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-example/wiki/) to explain different concept and use cases. 
+
+# Hello World
+## Get your own copy
 1. Fork this project.
 2. Rename the project (Open the pom.xml and adjust the name tag)
 3. Import the project into an IDE of your choice. (It should be able to handle Maven project in order to sort all the dependencies for you)
 
-### Set up
+## Set up
 4. Set up WebDrivers and Browsers
    1. Open `config\browser.properties`
    2. Set the property `xlt.webDriver.chrome.pathToDriverServer`
-   3. set the property `xlt.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
+   3. Set the property `xlt.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
 5. Add the URL to start in `template.settings.Settings.java` (or try with [https://www.xceptance.com/en/](https://www.xceptance.com/en/) (already set) for demo purposes)
 
-### Execution
+## Execution
 6. Run the `template.neodymium.tests.smoke.HomePageTest.java` from the Neodymium package as JUnit test
 
-### Validate the World with Neodymium 
+## Validate the World with Neodymium 
 7. Uncomment `homepage.validateStructure();` within the `HomePageTest.java`
 8. Adjust the validation within the `template.pageObjects.pages.HomePage.java` to match the site that is going to be tested (only if you changed it)
 9. Run the `template.neodymium.tests.smoke.HomePageTest.java` again
 
-### Validate the World with Cucumber
+## Validate the World with Cucumber
 9. Run the `template.cucumber.tests.RunAllTests.java` from the Cucumber package as JUnit test
- 
-## Getting familiar
-After you've done the Hello World steps you are ready to deep dive into more complex scenarios.
-Goto our [Neodymium-example](https://github.com/Xceptance/neodymium-example) project to find a demonstration of all the cool stuff that's possible with Neodymium.
-Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-example/wiki/) to explain different concept and use cases. 
 
-## Taking ownership 
+
+# Taking ownership 
 If you want to adopt the template for your own project your certainly would like to change the template folder to something project specific.
 Please perform the following steps to rename it:
 1. Rename the `template` package to a name of your choice
