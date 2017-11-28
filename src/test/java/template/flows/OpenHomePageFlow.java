@@ -10,7 +10,7 @@ import template.settings.Settings;
 public class OpenHomePageFlow
 {
 
-    @And("^I am on the homepage of the project$")
+    @And("^I navigate to he home page of the project$")
     public HomePage flow()
     {
         // clear browser cookies to remove old data
@@ -18,9 +18,6 @@ public class OpenHomePageFlow
 
         // navigate to the home page
         HomePage homePage = open(Settings.homePageUrl, HomePage.class);
-
-        // basic check to make sure your on the home page
-        homePage.isExpectedPage();
         return homePage;
     };
 }

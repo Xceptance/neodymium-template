@@ -28,7 +28,7 @@ public class HomePage extends AbstractPageObject
      * 
      * @see template.pageObjects.pages.AbstractPageObject()
      */
-    @Then("^The homePage should have heading, carousel, services and the company button$")
+    @Then("^The home page should have heading, carousel, services and the company button$")
     public void validateStructure()
     {
         // Verifies the company Logo and name are visible.
