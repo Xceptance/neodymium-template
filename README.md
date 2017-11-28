@@ -37,4 +37,7 @@ If you want to adopt the template for your own project your certainly would like
 Please perform the following steps to rename it:
 1. Rename the `template` package to a name of your choice
 2. Update the `pom.xml` (especially the Surefire configuration that states which tests should be executed)
-3. Update the `@CucumberOptions` within `template.cucumber.tests.RunAllTests.java` to have the new path in features and glue 
+3. Update the `@CucumberOptions` within `template.cucumber.tests.RunAllTests.java` to have the new path in features and glue
+
+## License
+MIT
