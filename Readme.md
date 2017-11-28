@@ -1,16 +1,16 @@
 # Introduction
-This repository is supposed to be used as template for test automation projects 
+This repository is supposed to be used as template for test automation projects using Neodymium.
 
 # Getting familiar
-Please perform the Hello World first to get a first insight and feeling for test automation using Neodymium.
+Please perform the Hello World first to get a first insight and feeling for test automation with Neodymium.
 Afterwards you are ready to deep dive into more complex scenarios. 
 Our [Neodymium-example](https://github.com/Xceptance/neodymium-example) project demonstrates all the cool stuff that's possible with Neodymium.
-Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-example/wiki/) to explain different concept and use cases. 
+Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-example/wiki/) to explain different concepts and use cases. 
 
 # Hello World
 ## Get your own copy
-1. Fork this project.
-2. Rename the project (Open the pom.xml and adjust the name tag)
+1. Fork this project
+2. Rename the project (Open the `pom.xml` and adjust the name tag)
 3. Import the project into an IDE of your choice. (It should be able to handle Maven project in order to sort all the dependencies for you)
 
 ## Set up
