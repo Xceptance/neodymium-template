@@ -9,9 +9,9 @@ This repository is supposed to be used as template for test automation projects
 
 ### Set up
 4. Set up WebDrivers and Browsers
-4.1. Open `config\browser.properties`
-4.2. Set the property `xlt.webDriver.chrome.pathToDriverServer`
-4.3.set the property `xlt.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
+4. 1. Open `config\browser.properties`
+4. 2. Set the property `xlt.webDriver.chrome.pathToDriverServer`
+4. 3. set the property `xlt.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
 5. Add the URL to start in `template.settings.Settings.java` (or try with [https://www.xceptance.com/en/](https://www.xceptance.com/en/) (already set) for demo purposes)
 
 ### Execution
@@ -30,7 +30,7 @@ After you've done the Hello World steps you are ready to deep dive into more com
 Goto our [Neodymium-example](https://github.com/Xceptance/neodymium-example) project to find a demonstration of all the cool stuff that's possible with Neodymium.
 Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-example/wiki/) to explain different concept and use cases. 
 
-## Taking the ownership 
+## Taking ownership 
 If you want to adopt the template for your own project your certainly would like to change the template folder to something project specific.
 Please perform the following steps to rename it:
 1. Rename the `template` package to a name of your choice
