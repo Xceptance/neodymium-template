@@ -31,13 +31,18 @@ Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium
 ## Validate the World with Cucumber
 9. Run the `template.cucumber.tests.RunAllTests.java` from the Cucumber package as JUnit test
 
-
 # Taking ownership 
 If you want to adopt the template for your own project your certainly would like to change the template folder to something project specific.
 Please perform the following steps to rename it:
 1. Rename the `template` package to a name of your choice
 2. Update the `pom.xml` (especially the Surefire configuration that states which tests should be executed)
 3. Update the `@CucumberOptions` within `template.cucumber.tests.RunAllTests.java` to have the new path in features and glue
+
+# Remove unneeded approach
+After you have decided whether you want to go the pure Java or the Cucumber way. You can simply delete the folder of the unused approach.
+If you like you can also clean up the Surefire configuration in the `pom.xml` by removing the now unused `<include>` path.
+
+In case you want to use both approaches you are free to do so and take advantage of booth of their strengths.
 
 ## License
 MIT

@@ -14,7 +14,7 @@ public class HomePageTest extends BasicTest
         // Goto the home page
         HomePage homePage = new OpenHomePageFlow().flow();
 
-        // short validation to check that the correct page was opened
+        // short validation to check that the correct page was opened, should be moved to OpenHomePageFlow
         homePage.isExpectedPage();
         // basic validation
         homePage.validateStructure();
