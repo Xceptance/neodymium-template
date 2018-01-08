@@ -16,8 +16,8 @@ Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium
 ## Set up
 4. Set up WebDrivers and Browsers
    1. Open `config\browser.properties`
-   2. Set the property `xlt.webDriver.chrome.pathToDriverServer`
-   3. Set the property `xlt.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
+   2. Set the property `neodymium.webDriver.chrome.pathToDriverServer`
+   3. Set the property `neodymium.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
 5. Add the URL to start in `template.settings.Settings.java` (or try with [https://www.xceptance.com/en/](https://www.xceptance.com/en/) (already set) for demo purposes)
 
 ## Execution
