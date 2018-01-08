@@ -43,7 +43,7 @@
 
 					<!-- our test case naming does not follow Maven naming conventions -->
 					<includes>
-					    <!-- Neodymium test cases -->
+					    <!-- Neodymium (pure Java) test cases -->
 						<include>template/neodymium/tests/**/*Test.java</include>
 					    <!-- Cucumber test cases -->
 						<include>template/cucumber/tests/RunAllFeaturesTest.java</include>
