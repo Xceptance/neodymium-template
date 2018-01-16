@@ -5,7 +5,7 @@ This repository is supposed to be used as template for test automation projects 
 Please perform the Hello World first to get a first insight and feeling for test automation with Neodymium.
 Afterwards you are ready to deep dive into more complex scenarios. 
 Our [Neodymium-example](https://github.com/Xceptance/neodymium-example) project demonstrates all the cool stuff that's possible with Neodymium.
-Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-example/wiki/) to explain different concepts and use cases. 
+Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-library/wiki) to explain different concepts and use cases. 
 
 # Hello World
 ## Get your own copy
