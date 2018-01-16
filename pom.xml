@@ -37,9 +37,8 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.20</version>
 				<configuration>
-					<!-- parallel test execution does not work reliably -->
-					<!-- <parallel>classesAndMethods</parallel> -->
-					<!-- <threadCount>8</threadCount> -->
+					<forkCount>4</forkCount>
+                    <reuseForks>false</reuseForks>
 
 					<!-- our test case naming does not follow Maven naming conventions -->
 					<includes>
