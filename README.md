@@ -38,7 +38,7 @@ Please perform the following steps to rename it:
 2. Update the `pom.xml` (especially the Surefire configuration that states which tests should be executed)
 3. Update the `@CucumberOptions` within `template.cucumber.tests.RunAllTests.java` to have the new path in features and glue
 
-# Remove unneeded approach
+# Remove unneeded code approach
 After you have decided whether you want to go the pure Java or the Cucumber way. You can simply delete the folder of the unused approach.
 If you like you can also clean up the Surefire configuration in the `pom.xml` by removing the now unused `<include>` path.
 
