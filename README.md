@@ -1,5 +1,5 @@
 # Introduction
-This repository is supposed to be used as template for test automation projects using Neodymium.
+This repository is supposed to be used as template for test automation projects using Neodymium. It contains both a pure Java and a Cucumber approach as well. A test automation template based on best practice libraries and added missing functionalities to aid test automation done by Xceptance.
 
 # Getting familiar
 Please perform the Hello World tutorial first to get a first insight and feeling for test automation with Neodymium.
@@ -39,7 +39,7 @@ Please perform the following steps to rename it:
 3. Update the `@CucumberOptions` within `template.cucumber.tests.RunAllTests.java` to have the new path in features and glue
 
 # Remove unneeded code approach
-After you have decided whether you want to go the pure Java or the Cucumber way. You can simply delete the folder of the unused approach.
+After you have decided whether you want to go the pure Java or the Cucumber way. You can simply delete the folder of the unused approach (either `src/test/java/template/neodymium` or `src/test/java/template/cucumber`).
 If you like you can also clean up the Surefire configuration in the `pom.xml` by removing the now unused `<include>` path.
 
 ```XML
