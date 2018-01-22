@@ -1,5 +1,5 @@
 # Introduction
-This repository is supposed to be used as template for test automation projects using Neodymium. It contains both a pure Java and a Cucumber approach as well. A test automation template based on best practice libraries and added missing functionalities to aid test automation done by Xceptance.
+This repository is supposed to be used as template for test automation projects using [Neodymium Library](https://github.com/Xceptance/neodymium-library). It contains both a pure Java and a Cucumber approach as well. A test automation template based on best practice libraries and added missing functionalities to aid test automation done by Xceptance.
 
 # Getting familiar
 Please perform the Hello World tutorial first to get a first insight and feeling for test automation with Neodymium.
