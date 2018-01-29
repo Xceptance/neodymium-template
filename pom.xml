@@ -66,7 +66,7 @@
 						</property>
 						<property>
 							<name>cucumber.options</name>
-							<value>--plugin io.qameta.allure.cucumberjvm.AllureCucumberJvm</value>
+							<value>--plugin io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm</value>
 						</property>
 					</systemProperties>
 				</configuration>
