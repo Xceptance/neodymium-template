@@ -3,12 +3,9 @@
  */
 package template.neodymium.tests;
 
-import java.util.Map;
-
 import org.junit.runner.RunWith;
 
 import com.xceptance.neodymium.NeodymiumRunner;
-import com.xceptance.neodymium.TestData;
 import com.xceptance.neodymium.multibrowser.Browser;
 
 /**
@@ -16,11 +13,9 @@ import com.xceptance.neodymium.multibrowser.Browser;
  */
 @RunWith(NeodymiumRunner.class)
 @Browser(
-{
-  "Chrome_1024x768"
-})
+    {
+        "Chrome_1024x768"
+    })
 public class BasicTest
 {
-    @TestData
-    public Map<String, String> data;
 }
