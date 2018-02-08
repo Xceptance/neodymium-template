@@ -1,8 +1,11 @@
 package template.pageObjects.pages;
 
-import static com.codeborne.selenide.CollectionCondition.*;
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.matchText;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 import cucumber.api.java.en.Then;
 
@@ -11,6 +14,7 @@ public class HomePage extends AbstractPageObject
 
     /*
      * (non-Javadoc)
+     * 
      * @see com.xceptance.scripting.selenide.page.AbstractPage()
      */
     @Override
@@ -21,13 +25,14 @@ public class HomePage extends AbstractPageObject
 
     /*
      * (non-Javadoc)
+     * 
      * @see template.pageObjects.pages.AbstractPageObject()
      */
     @Then("^The home page should have heading, carousel, services and the company button$")
     public void validateStructure()
     {
         // Verifies the company Logo and name are visible.
-        $("#navigation .navbar-brand a[title=Home]").shouldBe(not(visible));
+        $("#navigation .navbar-brand a[title=Home]").shouldBe(visible);
 
         // Verifies the Navigation bar is visible
         $("#navigation .navbar-header ul.nav").shouldBe(visible);
