@@ -130,20 +130,28 @@
 		</profile>
 	</profiles>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.xceptance</groupId>
-			<artifactId>neodymium-library</artifactId>
-			<version>0.0.9-SNAPSHOT</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-nop</artifactId>
-			<version>1.7.25</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+
+    <repositories>
+        <repository>
+            <id>xc-nexus</id>
+            <url>https://lab.xceptance.de/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.xceptance</groupId>
+            <artifactId>neodymium-library</artifactId>
+            <version>0.0.9</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.25</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 	<reporting>
 		<plugins>
