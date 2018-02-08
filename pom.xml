@@ -94,10 +94,12 @@
         </plugins>
     </build>
 
-    <repository>
-        <id>xc-nexus</id>
-        <url>https://lab.xceptance.de/nexus/content/groups/public</url>
-    </repository>
+    <repositories>
+        <repository>
+            <id>xc-nexus</id>
+            <url>https://lab.xceptance.de/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
