@@ -54,14 +54,14 @@
                         <!-- Neodymium (pure Java) test cases -->
                         <include>template/neodymium/tests/**/*Test.java</include>
                         <!-- Cucumber test cases -->
-						<include>template/cucumber/tests/RunAllFeaturesTest.java</include>
+                        <include>template/cucumber/tests/RunAllFeaturesTest.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
-					<argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
+                    <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
                     <properties>
                         <property>
                             <name>listener</name>
-							<value>io.qameta.allure.junit4.AllureJunit4</value>
+                            <value>io.qameta.allure.junit4.AllureJunit4</value>
                         </property>
                     </properties>
                     <systemPropertyVariables>
@@ -94,11 +94,16 @@
         </plugins>
     </build>
 
+    <repository>
+        <id>xc-nexus</id>
+        <url>https://lab.xceptance.de/nexus/content/groups/public</url>
+    </repository>
+
     <dependencies>
         <dependency>
             <groupId>com.xceptance</groupId>
             <artifactId>neodymium-library</artifactId>
-            <version>0.0.9-SNAPSHOT</version>
+            <version>0.0.9</version>
             <scope>test</scope>
         </dependency>
         <dependency>
