@@ -130,7 +130,6 @@
 		</profile>
 	</profiles>
 
-
     <repositories>
         <repository>
             <id>xc-nexus</id>
@@ -142,7 +141,7 @@
         <dependency>
             <groupId>com.xceptance</groupId>
             <artifactId>neodymium-library</artifactId>
-            <version>0.0.9</version>
+            <version>0.1.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
