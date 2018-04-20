@@ -3,10 +3,10 @@ package template.neodymium.tests.smoke;
 import org.junit.Test;
 
 import template.flows.OpenHomePageFlow;
-import template.neodymium.tests.BasicTest;
+import template.neodymium.tests.AbstractTest;
 import template.pageObjects.pages.HomePage;
 
-public class HomePageTest extends BasicTest
+public class HomePageTest extends AbstractTest
 {
     @Test
     public void testVisitingHomepage()
