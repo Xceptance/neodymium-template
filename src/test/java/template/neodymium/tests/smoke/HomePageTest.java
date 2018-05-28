@@ -2,6 +2,8 @@ package template.neodymium.tests.smoke;
 
 import org.junit.Test;
 
+import com.xceptance.neodymium.util.Context;
+
 import template.flows.OpenHomePageFlow;
 import template.neodymium.tests.AbstractTest;
 import template.pageObjects.pages.HomePage;
@@ -18,6 +20,6 @@ public class HomePageTest extends AbstractTest
         homePage.isExpectedPage();
         // basic validation
         homePage.validateStructure();
-        homePage.title().validateTitle("Xceptance - The Software Testing Experts");
+        homePage.title().validateTitle(Context.localizedText("homepage.title"));
     }
 }
