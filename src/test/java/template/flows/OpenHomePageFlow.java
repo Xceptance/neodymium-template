@@ -3,7 +3,7 @@ package template.flows;
 import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 import static com.codeborne.selenide.Selenide.open;
 
-import com.xceptance.neodymium.util.Context;
+import com.xceptance.neodymium.util.Neodymium;
 
 import cucumber.api.java.en.And;
 import template.pageObjects.pages.HomePage;
@@ -18,7 +18,7 @@ public class OpenHomePageFlow
         clearBrowserCookies();
 
         // navigate to the home page
-        open(Context.get().configuration.url());
+        open(Neodymium.configuration().url());
         return new HomePage();
     };
 }

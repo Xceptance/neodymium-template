@@ -2,7 +2,7 @@ package template.neodymium.tests.smoke;
 
 import org.junit.Test;
 
-import com.xceptance.neodymium.util.Context;
+import com.xceptance.neodymium.util.Neodymium;
 
 import template.flows.OpenHomePageFlow;
 import template.neodymium.tests.AbstractTest;
@@ -20,6 +20,6 @@ public class HomePageTest extends AbstractTest
         homePage.isExpectedPage();
         // basic validation
         homePage.validateStructure();
-        homePage.title().validateTitle(Context.localizedText("homepage.title"));
+        homePage.title().validateTitle(Neodymium.localizedText("homepage.title"));
     }
 }
