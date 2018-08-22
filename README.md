@@ -18,7 +18,15 @@ Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium
    1. Open `config\browser.properties`
    2. Set the property `neodymium.webDriver.chrome.pathToDriverServer`
    3. Set the property `neodymium.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
-5. Add the URL to start in `template.settings.Settings.java` (or try with [https://www.xceptance.com/en/](https://www.xceptance.com/en/) (already set) for demo purposes)
+5. Change the URL (or try with [https://www.xceptance.com/en/](https://www.xceptance.com/en/) (already set) for demo purposes)
+   1. Open `config\neodymium.properties`
+   2. Set `neodymium.url.protocol` to the protocol, i.e. `https`
+   3. Set `neodymium.url.host` to the host, i.e. `www.xceptance.com`
+   4. Set `neodymium.url.path` to the path, i.e. `en`
+   5. Set `neodymium.url.port` to the port with a colon in front, i.e. `:443`
+   
+   Instead of these steps, the property `neodymium.url` could also simply be changed to the desired URL. However, since the [Owner](http://owner.aeonbits.org/) framework allows reading and especially mutating properties among others, it is more helpful to separate the URL in its respective parts.
+
 
 ## Execution
 6. Run the `template.neodymium.tests.smoke.HomePageTest.java` from the Neodymium package as JUnit test
