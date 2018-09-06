@@ -14,12 +14,12 @@ public class HomePageTest extends AbstractTest
     public void testVisitingHomepage()
     {
         // Goto the home page
-        HomePage homePage = new OpenHomePageFlow().flow();
+        HomePage homePage = OpenHomePageFlow.flow();
 
         // short validation to check that the correct page was opened, should be moved to OpenHomePageFlow
         homePage.isExpectedPage();
         // basic validation
         homePage.validateStructure();
-        homePage.title().validateTitle(Neodymium.localizedText("homepage.title"));
+        homePage.title.validateTitle(Neodymium.localizedText("homepage.title"));
     }
 }

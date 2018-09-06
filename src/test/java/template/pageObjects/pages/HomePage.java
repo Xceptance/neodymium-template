@@ -11,7 +11,6 @@ import cucumber.api.java.en.Then;
 
 public class HomePage extends AbstractPageObject
 {
-
     /*
      * (non-Javadoc)
      * 

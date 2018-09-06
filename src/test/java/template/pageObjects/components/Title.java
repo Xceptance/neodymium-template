@@ -10,7 +10,6 @@ import cucumber.api.java.en.Then;
 
 public class Title extends AbstractComponent
 {
-
     public void isComponentAvailable()
     {
     }

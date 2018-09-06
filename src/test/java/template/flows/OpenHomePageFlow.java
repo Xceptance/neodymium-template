@@ -10,9 +10,8 @@ import template.pageObjects.pages.HomePage;
 
 public class OpenHomePageFlow
 {
-
     @And("^I navigate to he home page of the project$")
-    public HomePage flow()
+    public static HomePage flow()
     {
         // clear browser cookies to remove old data
         clearBrowserCookies();
