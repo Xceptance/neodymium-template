@@ -1,4 +1,4 @@
-package template.pageObjects.components;
+package template.pageobjects.components;
 
 public abstract class AbstractComponent
 {

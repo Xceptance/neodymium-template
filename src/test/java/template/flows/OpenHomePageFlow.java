@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.open;
 import com.xceptance.neodymium.util.Neodymium;
 
 import cucumber.api.java.en.And;
-import template.pageObjects.pages.HomePage;
+import template.pageobjects.pages.HomePage;
 
 public class OpenHomePageFlow
 {

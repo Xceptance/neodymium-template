@@ -6,7 +6,7 @@ import com.xceptance.neodymium.util.Neodymium;
 
 import template.flows.OpenHomePageFlow;
 import template.neodymium.tests.AbstractTest;
-import template.pageObjects.pages.HomePage;
+import template.pageobjects.pages.HomePage;
 
 public class HomePageTest extends AbstractTest
 {
