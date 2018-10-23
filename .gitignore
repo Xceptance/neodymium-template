@@ -4,3 +4,4 @@
 .settings
 build
 /.allure/
+dev-*.properties
