@@ -37,7 +37,7 @@ Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium
 9. Run the `template.neodymium.tests.smoke.HomePageTest.java` again
 
 ## Validate the World with Cucumber
-9. Run the `template.cucumber.tests.RunAllTests.java` from the Cucumber package as JUnit test
+9. Run the `template.cucumber.tests.RunAllFeatures.java` from the Cucumber package as JUnit test
 
 # Taking ownership 
 If you want to adopt the template for your own project your certainly would like to change the template folder to something project specific.
