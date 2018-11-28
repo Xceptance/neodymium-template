@@ -15,7 +15,7 @@ Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium
 
 ## Set up
 4. Set up WebDrivers and Browsers
-   1. Open `config\browser.properties`
+   1. Open `config\neodymium.properties`
    2. Set the property `neodymium.webDriver.chrome.pathToDriverServer`
    3. Set the property `neodymium.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
 5. Change the URL (or try with [https://www.xceptance.com/en/](https://www.xceptance.com/en/) (already set) for demo purposes)
