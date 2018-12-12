@@ -1,3 +1,4 @@
+@Homepage
 Feature: Home page
 
   Scenario Outline: Visting the home page
