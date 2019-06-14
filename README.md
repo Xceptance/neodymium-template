@@ -16,25 +16,26 @@ Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium
 ## Set up
 4. Set up WebDrivers and Browsers
    1. Open `config\neodymium.properties`
-   2. Set the property `neodymium.webDriver.chrome.pathToDriverServer`
-   3. Set the property `neodymium.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
-5. Change the URL (or try with [https://www.xceptance.com/en/](https://www.xceptance.com/en/) (already set) for demo purposes)
+   2. Set and uncomment the property `neodymium.webDriver.chrome.pathToDriverServer`
+   3. Set and uncomment the property `neodymium.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
+5. Change the URL (or try with [https://www.xceptance.com:443/en/](https://www.xceptance.com:443/en/) (already set) for demo purposes)
    1. Open `config\neodymium.properties`
    2. Set `neodymium.url.protocol` to the protocol, i.e. `https`
    3. Set `neodymium.url.host` to the host, i.e. `www.xceptance.com`
-   4. Set `neodymium.url.path` to the path, i.e. `en`
+   4. Set `neodymium.url.site` to the path, i.e. `en`
    5. Set `neodymium.url.port` to the port with a colon in front, i.e. `:443`
    
-   Instead of these steps, the property `neodymium.url` could also simply be changed to the desired URL. However, since the [Owner](http://owner.aeonbits.org/) framework allows reading and especially mutating properties among others, it is more helpful to separate the URL in its respective parts.
+   Within the configuration those values are combined using the following rule: `${neodymium.url.protocol}://${neodymium.url.host}${neodymium.url.port}/${neodymium.url.site}/`
+   
+   Instead of setting all these single values, the property `neodymium.url` could also simply be changed to the desired URL. However, since the [Owner](http://owner.aeonbits.org/) framework allows reading and especially mutating properties among others, it is more helpful to separate the URL in its respective parts.
 
 
 ## Execution
 6. Run the `template.neodymium.tests.smoke.HomePageTest.java` from the Neodymium package as JUnit test
 
 ## Validate the World with Neodymium 
-7. Uncomment `homepage.validateStructure();` within the `HomePageTest.java`
-8. Adjust the validation within the `template.pageObjects.pages.HomePage.java` to match the site that is going to be tested (only if you changed it)
-9. Run the `template.neodymium.tests.smoke.HomePageTest.java` again
+7. Adjust the validation within the `template.pageObjects.pages.HomePage.java` to match the site that is going to be tested (only if you changed it)
+8. Run the `template.neodymium.tests.smoke.HomePageTest.java` again
 
 ## Validate the World with Cucumber
 9. Run the `template.cucumber.tests.RunAllFeatures.java` from the Cucumber package as JUnit test
