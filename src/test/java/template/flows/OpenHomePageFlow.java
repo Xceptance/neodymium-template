@@ -5,7 +5,7 @@ import com.xceptance.neodymium.util.Neodymium;
 import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 import static com.codeborne.selenide.Selenide.open;
 
-import cucumber.api.java.en.And;
+import io.cucumber.java.en.And;
 import template.pageobjects.pages.HomePage;
 
 public class OpenHomePageFlow

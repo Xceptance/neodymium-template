@@ -9,7 +9,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Then;
 import io.qameta.allure.Step;
 
 public class HomePage extends AbstractPageObject
@@ -40,6 +40,7 @@ public class HomePage extends AbstractPageObject
 
         // Verifies the Navigation bar is visible
         $("#navigation .navbar-header ul.nav").shouldBe(visible);
+
         // Asserts there's categories in the nav bar.
         $$("#navigation .navbar-header ul.nav > li > a").shouldHave(sizeGreaterThan(0));
 
