@@ -60,7 +60,7 @@ If you like you can also clean up the Surefire configuration in the `pom.xml` by
 </includes>
 ```
 
-In case you want to use both approaches you are free to do so and take advantage of booth of their strengths.
+In case you want to use both approaches you are free to do so and take advantage of both of their strengths.
 
 ## License
 MIT
