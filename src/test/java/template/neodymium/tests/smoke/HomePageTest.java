@@ -1,12 +1,8 @@
 package template.neodymium.tests.smoke;
 
-import org.junit.Test;
-import org.junit.runners.model.InitializationError;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+import static com.codeborne.selenide.Selenide.$;
 
-import com.applitools.eyes.selenium.Eyes;
-import com.xceptance.neodymium.util.Neodymium;
+import org.junit.Test;
 
 import template.flows.OpenHomePageFlow;
 import template.neodymium.tests.AbstractTest;
@@ -16,26 +12,32 @@ public class HomePageTest extends AbstractTest
 {
 
     @Test
-    public void testVisitingHomepage() throws InitializationError
+    public void testVisitingHomepage()
     {
-        Eyes eyes = new Eyes();
-
-        String apiKey = "";
-        eyes.setApiKey(apiKey);
         // Goto the home page
 
         HomePage homePage = OpenHomePageFlow.flow();
-        EventFiringWebDriver eventFiringWebDriver = (EventFiringWebDriver) Neodymium.getDriver();
-        RemoteWebDriver remoteWebDriver = (RemoteWebDriver) eventFiringWebDriver.getWrappedDriver();
-        eyes.open(remoteWebDriver, "HomePage", "HomePageTest");
+        // applitoolsApi.openEyes("testVisitingHomepage");
 
         // short validation to check that the correct page was opened, should be moved to OpenHomePageFlow
         homePage.isExpectedPage();
-        // basic validation
-        homePage.validateStructure();
-        homePage.title.validateTitle(Neodymium.localizedText("homepage.title"));
 
-        eyes.checkWindow("HomePage Window");
-        eyes.closeAsync();
+        applitoolsApi.assertPage("Home Page");
     }
+
+    @Test
+    public void testHomepage()
+    {
+        // Goto the home page
+
+        HomePage homePage = OpenHomePageFlow.flow();
+        // applitoolsApi.openEyes("testHomepage");
+
+        // short validation to check that the correct page was opened, should be moved to OpenHomePageFlow
+        homePage.isExpectedPage();
+        $(".text-right .btn.btn-primary").click();
+
+        applitoolsApi.assertPage("Home Page");
+    }
+
 }
