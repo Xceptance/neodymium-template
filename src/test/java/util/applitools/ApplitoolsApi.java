@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.applitools.eyes.BatchInfo;
+import com.applitools.eyes.MatchLevel;
 import com.applitools.eyes.TestResults;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
@@ -42,13 +43,18 @@ public class ApplitoolsApi
         {
             throw new RuntimeException("No API Key found; Please set environment variable 'APPLITOOLS_API_KEY'.");
         }
+        setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).macthLevel());
 
         // Set your personal Applitols API Key from your environment variables.
         eyes.setApiKey(apiKey);
-
         // set batch name
         eyes.setBatch(batch);
 
+    }
+
+    public void setMatchLevel(String matchLevel)
+    {
+        eyes.setMatchLevel(parseMatchLevel(matchLevel));
     }
 
     public void openEyes(String testName)
@@ -72,5 +78,24 @@ public class ApplitoolsApi
         AllureAddons.addToReport("number of missmatches", allTestResults.getMismatches());
         AllureAddons.addToReport("link to results of visual assetions in this test", allTestResults.getUrl());
         eyes.abortIfNotClosed();
+    }
+
+    private MatchLevel parseMatchLevel(String matchLevel)
+    {
+        switch (matchLevel)
+        {
+            case "LAYOUT2":
+                return MatchLevel.LAYOUT2;
+            case "LAYOUT":
+                return MatchLevel.LAYOUT;
+            case "CONTENT":
+                return MatchLevel.CONTENT;
+            case "EXACT":
+                return MatchLevel.EXACT;
+            case "NONE":
+                return MatchLevel.NONE;
+            default:
+                return MatchLevel.STRICT;
+        }
     }
 }

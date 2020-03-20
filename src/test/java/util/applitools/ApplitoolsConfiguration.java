@@ -21,6 +21,9 @@ public interface ApplitoolsConfiguration extends Mutable
     @Key("applitools.project_name")
     String projectName();
 
+    @Key("applitools.macthLevel")
+    String macthLevel();
+
     static String apiKey()
     {
         String apiKey = ConfigFactory.create(ApplitoolsConfiguration.class).apiKeyFromProps();
