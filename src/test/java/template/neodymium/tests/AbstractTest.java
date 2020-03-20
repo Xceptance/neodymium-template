@@ -5,7 +5,8 @@ package template.neodymium.tests;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 
 import com.xceptance.neodymium.NeodymiumRunner;
@@ -20,20 +21,16 @@ import util.applitools.ApplitoolsApi;
 @Browser("Chrome_1024x768")
 public abstract class AbstractTest
 {
-    protected ApplitoolsApi applitoolsApi;
+    protected ApplitoolsApi applitoolsApi = new ApplitoolsApi();
 
-    @BeforeClass
-    public static void setBatch()
-    {
-        ApplitoolsApi.setupGlobal();
-    }
+    @Rule
+    public TestName name = new TestName();
 
     @Before
     public void beforeEach()
     {
-        applitoolsApi = new ApplitoolsApi();
-        // applitoolsApi = new ApplitoolsApi();
-        // applitoolsApi.setupForTest();
+        applitoolsApi.setupForTest();
+        applitoolsApi.openEyes(name.getMethodName());
     }
 
     @After

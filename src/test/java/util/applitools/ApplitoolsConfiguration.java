@@ -14,8 +14,6 @@ import org.aeonbits.owner.Mutable;
 
 public interface ApplitoolsConfiguration extends Mutable
 {
-    @Key("applitools.batch")
-    public String batch();
 
     @Key("applitools.api_key")
     String apiKeyFromProps();
@@ -23,7 +21,7 @@ public interface ApplitoolsConfiguration extends Mutable
     @Key("applitools.project_name")
     String projectName();
 
-    public static String apiKey()
+    static String apiKey()
     {
         String apiKey = ConfigFactory.create(ApplitoolsConfiguration.class).apiKeyFromProps();
         if (apiKey == null)

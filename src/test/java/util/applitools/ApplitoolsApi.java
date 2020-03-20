@@ -2,35 +2,30 @@ package util.applitools;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.applitools.eyes.BatchInfo;
-import com.applitools.eyes.EyesRunner;
-import com.applitools.eyes.TestResultsSummary;
-import com.applitools.eyes.exceptions.DiffsFoundException;
+import com.applitools.eyes.TestResults;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
+import com.xceptance.neodymium.util.AllureAddons;
 import com.xceptance.neodymium.util.Neodymium;
 
 public class ApplitoolsApi
 {
+    // have to be saved in class because needed to be passed for setup before each test method
     private static BatchInfo batch;
 
     private Eyes eyes;
 
-    private WebDriver driver;
+    private ClassicRunner runner;
 
-    private EyesRunner runner;
-
-    public static void setupGlobal()
+    public static void setupGlobal(String batchName)
     {
-        batch = new BatchInfo(ConfigFactory.create(ApplitoolsConfiguration.class).batch());
+        batch = new BatchInfo(batchName);
     }
 
     public void setupForTest()
@@ -54,51 +49,28 @@ public class ApplitoolsApi
         // set batch name
         eyes.setBatch(batch);
 
-        // Use Chrome browser
-        EventFiringWebDriver eventFiringWebDriver = (EventFiringWebDriver) Neodymium.getDriver();
-        RemoteWebDriver remoteWebDriver = (RemoteWebDriver) eventFiringWebDriver.getWrappedDriver();
-        driver = remoteWebDriver;
     }
 
     public void openEyes(String testName)
     {
-        setupForTest();
+        // get driver instance from neodymium and cast to webdriver
+        EventFiringWebDriver eventFiringWebDriver = (EventFiringWebDriver) Neodymium.getDriver();
+        WebDriver driver = (RemoteWebDriver) eventFiringWebDriver.getWrappedDriver();
+
         eyes.open(driver, ConfigFactory.create(ApplitoolsConfiguration.class).projectName(), testName);
     }
 
     public void assertPage(String pageName)
     {
-        openEyes(pageName);
-
         eyes.checkWindow(pageName);
     }
 
     public void endAssertions()
     {
         eyes.closeAsync();
-        Pattern p = Pattern.compile("https\\:\\/\\/(.*)");
-        String urlToPicture = "https://";
-        // Wait and collect all test results
-        try
-        {
-            TestResultsSummary allTestResults = runner.getAllTestResults();
-            Matcher m = p.matcher(allTestResults.toString());
-            m.find();
-            urlToPicture += m.group(1);
-            System.out.println(urlToPicture);
-        }
-        catch (DiffsFoundException diffException)
-        {
-            Matcher m = p.matcher(diffException.getMessage());
-            m.find();
-            urlToPicture += m.group(1);
-            System.out.println(urlToPicture);
-            throw diffException;
-        }
-        // Print results
-        // If the test was aborted before eyes.close was called, ends the test as
-        // aborted.
+        TestResults allTestResults = runner.getAllTestResultsImpl(false).getAllResults()[0].getTestResults();
+        AllureAddons.addToReport("number of missmatches", allTestResults.getMismatches());
+        AllureAddons.addToReport("link to results of visual assetions in this test", allTestResults.getUrl());
         eyes.abortIfNotClosed();
-
     }
 }
