@@ -78,13 +78,9 @@ public class ApplitoolsApi
     private String getApiKey()
     {
         String apiKey = ConfigFactory.create(ApplitoolsConfiguration.class).apiKey();
-        if (apiKey == null)
-        {
-            return System.getenv("APPLITOOLS_API_KEY");
-        }
         if (isNullOrEmpty(apiKey))
         {
-            throw new RuntimeException("No API Key found; Please set environment variable 'APPLITOOLS_API_KEY'.");
+            throw new RuntimeException("No API Key found; Please set applitools.apiKey property in applitools.properties");
         }
         return apiKey;
     }
