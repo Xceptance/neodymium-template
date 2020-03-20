@@ -37,16 +37,11 @@ public class ApplitoolsApi
         // Initialize the eyes SDK
         eyes = new Eyes(runner);
 
-        // Raise an error if no API Key has been found.
-        String apiKey = ApplitoolsConfiguration.apiKey();
-        if (isNullOrEmpty(apiKey))
-        {
-            throw new RuntimeException("No API Key found; Please set environment variable 'APPLITOOLS_API_KEY'.");
-        }
         setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).macthLevel());
 
         // Set your personal Applitols API Key from your environment variables.
-        eyes.setApiKey(apiKey);
+        eyes.setApiKey(getApiKey());
+
         // set batch name
         eyes.setBatch(batch);
 
@@ -78,6 +73,20 @@ public class ApplitoolsApi
         AllureAddons.addToReport("number of missmatches", allTestResults.getMismatches());
         AllureAddons.addToReport("link to results of visual assetions in this test", allTestResults.getUrl());
         eyes.abortIfNotClosed();
+    }
+
+    private String getApiKey()
+    {
+        String apiKey = ConfigFactory.create(ApplitoolsConfiguration.class).apiKey();
+        if (apiKey == null)
+        {
+            return System.getenv("APPLITOOLS_API_KEY");
+        }
+        if (isNullOrEmpty(apiKey))
+        {
+            throw new RuntimeException("No API Key found; Please set environment variable 'APPLITOOLS_API_KEY'.");
+        }
+        return apiKey;
     }
 
     private MatchLevel parseMatchLevel(String matchLevel)

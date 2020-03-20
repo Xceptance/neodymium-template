@@ -3,7 +3,6 @@ package util.applitools;
 import org.aeonbits.owner.Config.LoadPolicy;
 import org.aeonbits.owner.Config.LoadType;
 import org.aeonbits.owner.Config.Sources;
-import org.aeonbits.owner.ConfigFactory;
 import org.aeonbits.owner.Mutable;
 
 @LoadPolicy(LoadType.MERGE)
@@ -15,23 +14,12 @@ import org.aeonbits.owner.Mutable;
 public interface ApplitoolsConfiguration extends Mutable
 {
 
-    @Key("applitools.api_key")
-    String apiKeyFromProps();
+    @Key("applitools.apiKey")
+    String apiKey();
 
-    @Key("applitools.project_name")
+    @Key("applitools.projectName")
     String projectName();
 
     @Key("applitools.macthLevel")
     String macthLevel();
-
-    static String apiKey()
-    {
-        String apiKey = ConfigFactory.create(ApplitoolsConfiguration.class).apiKeyFromProps();
-        if (apiKey == null)
-        {
-            return System.getenv("APPLITOOLS_API_KEY");
-        }
-        return apiKey;
-    }
-
 }
