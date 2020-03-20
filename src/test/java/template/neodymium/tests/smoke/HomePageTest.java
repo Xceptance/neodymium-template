@@ -28,7 +28,7 @@ public class HomePageTest extends AbstractTest
         homePage.isExpectedPage();
 
         // this can be moved to page object
-        applitoolsApi.assertPage("Home Page");
+        ApplitoolsApi.assertPage("Home Page");
     }
 
     @Test
@@ -43,7 +43,7 @@ public class HomePageTest extends AbstractTest
         $(".text-right .btn.btn-primary").click();
 
         // this can be moved to page object
-        applitoolsApi.assertPage("Home Page after cookies accepted");
+        ApplitoolsApi.assertPage("Home Page after cookies accepted");
     }
 
 }

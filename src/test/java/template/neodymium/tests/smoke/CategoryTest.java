@@ -28,7 +28,7 @@ public class CategoryTest extends AbstractTest
         // short validation to check that the correct page was opened, should be moved to OpenHomePageFlow
         homePage.isExpectedPage();
         Selenide.open("https://www.xceptance.com/en/services/");
-        applitoolsApi.assertPage("Category Services Page");
+        ApplitoolsApi.assertPage("Category Services Page");
     }
 
     @Test
@@ -40,6 +40,6 @@ public class CategoryTest extends AbstractTest
         // short validation to check that the correct page was opened, should be moved to OpenHomePageFlow
         homePage.isExpectedPage();
         Selenide.open("https://www.xceptance.com/en/xlt/");
-        applitoolsApi.assertPage("Category Xlt Page");
+        ApplitoolsApi.assertPage("Category Xlt Page");
     }
 }

@@ -21,21 +21,19 @@ import util.applitools.ApplitoolsApi;
 @Browser("Chrome_1024x768")
 public abstract class AbstractTest
 {
-    protected ApplitoolsApi applitoolsApi = new ApplitoolsApi();
-
     @Rule
     public TestName name = new TestName();
 
     @Before
     public void beforeEach()
     {
-        applitoolsApi.setupForTest();
-        applitoolsApi.openEyes(name.getMethodName());
+        ApplitoolsApi.setupForTest();
+        ApplitoolsApi.openEyes(name.getMethodName());
     }
 
     @After
     public void afterEach()
     {
-        applitoolsApi.endAssertions();
+        ApplitoolsApi.endAssertions();
     }
 }

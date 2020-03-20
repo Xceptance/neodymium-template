@@ -22,4 +22,7 @@ public interface ApplitoolsConfiguration extends Mutable
 
     @Key("applitools.macthLevel")
     String macthLevel();
+
+    @Key("applitools.throwException")
+    String throwException();
 }
