@@ -5,6 +5,7 @@ import static com.google.common.base.Strings.isNullOrEmpty;
 import java.util.function.Supplier;
 
 import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -35,6 +36,11 @@ public class ApplitoolsApi
         batch = new BatchInfo(batchName);
     }
 
+    public static void addProppertiy(String name, String value)
+    {
+        eyes.get().addProperty(name, value);
+    }
+
     public static void setupForTest()
     {
         setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).macthLevel());
@@ -55,15 +61,59 @@ public class ApplitoolsApi
     public static void openEyes(String testName)
     {
         // get driver instance from neodymium and cast to webdriver
-        EventFiringWebDriver eventFiringWebDriver = (EventFiringWebDriver) Neodymium.getDriver();
-        WebDriver driver = (RemoteWebDriver) eventFiringWebDriver.getWrappedDriver();
+        eyes.get().open(getDriver(), ConfigFactory.create(ApplitoolsConfiguration.class).projectName(), testName);
+    }
 
-        eyes.get().open(driver, ConfigFactory.create(ApplitoolsConfiguration.class).projectName(), testName);
+    /**
+     * Use this method to set if Eyes should hide the cursor before the screenshot is captured.
+     * 
+     * @param hideCaret
+     */
+    public void setHideCaret(boolean hideCaret)
+    {
+        eyes.get().setHideCaret(hideCaret);
     }
 
     public static void assertPage(String pageName)
     {
         eyes.get().checkWindow(pageName);
+    }
+
+    public static void assertElement(String elementSelector)
+    {
+        assertElement(elementSelector, elementSelector);
+    }
+
+    public static void assertElements(String elementSelector)
+    {
+        WebDriver driver = getDriver();
+        if (elementSelector.substring(0, 1).equals("//"))
+        {
+            driver.findElements(By.xpath(elementSelector)).forEach(element -> eyes.get().checkElement(element, elementSelector));
+        }
+        else
+        {
+            driver.findElements(By.cssSelector(elementSelector)).forEach(element -> eyes.get().checkElement(element, elementSelector));
+        }
+    }
+
+    public static void setWaitBeforeScreenshot(int waitBeforeScreenshots)
+    {
+        eyes.get().setWaitBeforeScreenshots(waitBeforeScreenshots);
+    }
+
+    public static void assertElement(String elementSelector, String tag)
+    {
+        if (elementSelector.substring(0, 1).equals("//"))
+        {
+            eyes.get().checkElement(By.xpath(elementSelector), tag);
+
+        }
+        else
+        {
+            eyes.get().checkElement(By.cssSelector(elementSelector), tag);
+
+        }
     }
 
     public static void endAssertions()
@@ -82,6 +132,12 @@ public class ApplitoolsApi
             throw new RuntimeException("No API Key found; Please set applitools.apiKey property in applitools.properties");
         }
         return apiKey;
+    }
+
+    private static RemoteWebDriver getDriver()
+    {
+        EventFiringWebDriver eventFiringWebDriver = (EventFiringWebDriver) Neodymium.getDriver();
+        return (RemoteWebDriver) eventFiringWebDriver.getWrappedDriver();
     }
 
     private static MatchLevel parseMatchLevel(String matchLevel)
