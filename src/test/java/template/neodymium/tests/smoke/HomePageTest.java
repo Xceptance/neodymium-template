@@ -12,10 +12,11 @@ import util.applitools.ApplitoolsApi;
 
 public class HomePageTest extends AbstractTest
 {
+    // can't be moved to AbstractTest because the it will overwrite setup of batches with another names
     @BeforeClass
-    public static void setBatch()
+    public static void setupBatch()
     {
-        ApplitoolsApi.setupGlobal("Home Page Test-new");
+        ApplitoolsApi.setupGlobal();
     }
 
     @Test

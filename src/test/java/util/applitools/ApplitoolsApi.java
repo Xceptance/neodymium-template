@@ -20,7 +20,6 @@ import com.xceptance.neodymium.util.Neodymium;
 public class ApplitoolsApi
 {
     // have to be saved in class because needed to be passed for setup before each test method
-    private static BatchInfo batch;
 
     private static ThreadLocal<Eyes> eyes = ThreadLocal.withInitial(new Supplier<Eyes>()
     {
@@ -31,9 +30,27 @@ public class ApplitoolsApi
         }
     });
 
-    public static void setupGlobal(String batchName)
+    public static void setupGlobal()
     {
-        batch = new BatchInfo(batchName);
+        setupForGroupOfTests(ConfigFactory.create(ApplitoolsConfiguration.class).batch());
+    }
+
+    public static void setupForGroupOfTests(String batchNameForGroup)
+    {
+        BatchInfo batch = new BatchInfo(batchNameForGroup);
+        String batchId = BatchHelper.getBatch(batchNameForGroup);
+        if (batchId == null)
+        {
+            batch.setId(BatchHelper.addBatch(batchNameForGroup));
+        }
+        else
+        {
+            batch.setId(batchId);
+        }
+        eyes.get().setBatch(batch);
+        setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).macthLevel());
+
+        eyes.get().setApiKey(getApiKey());
     }
 
     public static void addProppertiy(String name, String value)
@@ -49,8 +66,6 @@ public class ApplitoolsApi
         eyes.get().setApiKey(getApiKey());
 
         // set batch name
-        eyes.get().setBatch(batch);
-
     }
 
     public static void setMatchLevel(String matchLevel)
@@ -69,7 +84,7 @@ public class ApplitoolsApi
      * 
      * @param hideCaret
      */
-    public void setHideCaret(boolean hideCaret)
+    public static void setHideCaret(boolean hideCaret)
     {
         eyes.get().setHideCaret(hideCaret);
     }

@@ -10,24 +10,12 @@ import template.neodymium.tests.AbstractTest;
 import template.pageobjects.pages.HomePage;
 import util.applitools.ApplitoolsApi;
 
-public class CategoryTest extends AbstractTest
+public class AnotherTest extends AbstractTest
 {
     @BeforeClass
     public static void setupBatch()
     {
         ApplitoolsApi.setupForGroupOfTests("category");
-    }
-
-    @Test
-    public void testCategoryServices()
-    {
-        // Goto the home page
-        HomePage homePage = OpenHomePageFlow.flow();
-
-        // short validation to check that the correct page was opened, should be moved to OpenHomePageFlow
-        homePage.isExpectedPage();
-        Selenide.open("https://www.xceptance.com/en/services/");
-        ApplitoolsApi.assertPage("Category Services Page");
     }
 
     @Test

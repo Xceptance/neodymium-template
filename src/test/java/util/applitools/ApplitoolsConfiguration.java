@@ -25,4 +25,7 @@ public interface ApplitoolsConfiguration extends Mutable
 
     @Key("applitools.throwException")
     String throwException();
+
+    @Key("applitools.batch")
+    String batch();
 }

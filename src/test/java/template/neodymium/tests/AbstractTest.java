@@ -27,7 +27,6 @@ public abstract class AbstractTest
     @Before
     public void beforeEach()
     {
-        ApplitoolsApi.setupForTest();
         ApplitoolsApi.openEyes(name.getMethodName());
     }
 
