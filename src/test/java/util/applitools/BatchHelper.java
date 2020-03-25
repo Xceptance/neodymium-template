@@ -15,27 +15,30 @@ public class BatchHelper
 
     public static String addBatch(String batchName)
     {
-        String batchId = "";
-        try
+        String batchId = null;
+        if (batchName != null)
         {
-            final String batchFilename = filename.replaceAll("batch", batchName);
-            if (new File(batchFilename).createNewFile())
+            try
             {
-                TestListener.filenames.add(batchFilename);
+                final String batchFilename = filename.replaceAll("batch", batchName);
+                if (new File(batchFilename).createNewFile())
+                {
+                    TestListener.filenames.add(batchFilename);
+                }
+                OutputStream output = new FileOutputStream(batchFilename);
+
+                Properties prop = new Properties();
+                batchId = batchName + new Date().toString();
+                // set the properties value
+                prop.setProperty("batch." + batchName, batchId);
+
+                // save properties to project root folder
+                prop.store(output, null);
             }
-            OutputStream output = new FileOutputStream(batchFilename);
-
-            Properties prop = new Properties();
-            batchId = batchName + new Date().toString();
-            // set the properties value
-            prop.setProperty("batch." + batchName, batchId);
-
-            // save properties to project root folder
-            prop.store(output, null);
-        }
-        catch (IOException io)
-        {
-            io.printStackTrace();
+            catch (IOException io)
+            {
+                io.printStackTrace();
+            }
         }
         return batchId;
     }
@@ -43,23 +46,26 @@ public class BatchHelper
     public static String getBatch(String batchName)
     {
         String batchId = null;
-        try
+        if (batchName != null)
         {
-            final String batchFilename = filename.replaceAll("batch", batchName);
-            if (new File(batchFilename).createNewFile())
+            try
             {
-                TestListener.filenames.add(batchFilename);
-            }
-            InputStream input = new FileInputStream(batchFilename);
-            Properties prop = new Properties();
+                final String batchFilename = filename.replaceAll("batch", batchName);
+                if (new File(batchFilename).createNewFile())
+                {
+                    TestListener.filenames.add(batchFilename);
+                }
+                InputStream input = new FileInputStream(batchFilename);
+                Properties prop = new Properties();
 
-            // load a properties file
-            prop.load(input);
-            batchId = prop.getProperty("batch." + batchName);
-        }
-        catch (IOException ex)
-        {
-            ex.printStackTrace();
+                // load a properties file
+                prop.load(input);
+                batchId = prop.getProperty("batch." + batchName);
+            }
+            catch (IOException ex)
+            {
+                ex.printStackTrace();
+            }
         }
         return batchId;
     }

@@ -39,7 +39,11 @@ public class ApplitoolsApi
         String batchId = BatchHelper.getBatch(batchNameForGroup);
         if (batchId == null)
         {
-            batch.setId(BatchHelper.addBatch(batchNameForGroup));
+            String newBatchId = BatchHelper.addBatch(batchNameForGroup);
+            if (newBatchId != null)
+            {
+                batch.setId(newBatchId);
+            }
         }
         else
         {
@@ -49,7 +53,7 @@ public class ApplitoolsApi
         setupForSingleTest();
     }
 
-    public static void addProppertiy(String name, String value)
+    public static void addPropertiy(String name, String value)
     {
         eyes.get().addProperty(name, value);
     }
@@ -126,6 +130,10 @@ public class ApplitoolsApi
     public static void endAssertions()
     {
         TestResults allTestResults = eyes.get().close(Boolean.parseBoolean(ConfigFactory.create(ApplitoolsConfiguration.class).throwException()));
+        if (allTestResults == null)
+        {
+            throw new RuntimeException("something went wrong, maybe you have not called Applitools.openEyes() before calling this method");
+        }
         AllureAddons.addToReport("number of missmatches", allTestResults.getMismatches());
         AllureAddons.addToReport("link to results of visual assetions in this test", allTestResults.getUrl());
         eyes.get().abortIfNotClosed();

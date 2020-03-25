@@ -21,6 +21,7 @@ public interface ApplitoolsConfiguration extends Mutable
     String projectName();
 
     @Key("applitools.matchLevel")
+    @DefaultValue("STRICT")
     String matchLevel();
 
     @Key("applitools.throwException")
