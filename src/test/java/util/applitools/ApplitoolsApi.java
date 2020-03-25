@@ -19,8 +19,6 @@ import com.xceptance.neodymium.util.Neodymium;
 
 public class ApplitoolsApi
 {
-    // have to be saved in class because needed to be passed for setup before each test method
-
     private static ThreadLocal<Eyes> eyes = ThreadLocal.withInitial(new Supplier<Eyes>()
     {
         @Override
@@ -62,10 +60,7 @@ public class ApplitoolsApi
     {
         setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).macthLevel());
 
-        // Set your personal Applitols API Key from your environment variables.
         eyes.get().setApiKey(getApiKey());
-
-        // set batch name
     }
 
     public static void setMatchLevel(String matchLevel)
@@ -75,7 +70,6 @@ public class ApplitoolsApi
 
     public static void openEyes(String testName)
     {
-        // get driver instance from neodymium and cast to webdriver
         eyes.get().open(getDriver(), ConfigFactory.create(ApplitoolsConfiguration.class).projectName(), testName);
     }
 
