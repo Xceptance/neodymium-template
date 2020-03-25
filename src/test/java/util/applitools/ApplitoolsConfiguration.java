@@ -20,7 +20,7 @@ public interface ApplitoolsConfiguration extends Mutable
     @Key("applitools.projectName")
     String projectName();
 
-    @Key("applitools.macthLevel")
+    @Key("applitools.matchLevel")
     String macthLevel();
 
     @Key("applitools.throwException")
