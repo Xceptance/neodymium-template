@@ -21,7 +21,7 @@ public interface ApplitoolsConfiguration extends Mutable
     String projectName();
 
     @Key("applitools.matchLevel")
-    String macthLevel();
+    String matchLevel();
 
     @Key("applitools.throwException")
     String throwException();

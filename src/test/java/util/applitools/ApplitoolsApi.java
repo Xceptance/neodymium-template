@@ -46,7 +46,7 @@ public class ApplitoolsApi
             batch.setId(batchId);
         }
         eyes.get().setBatch(batch);
-        setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).macthLevel());
+        setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).matchLevel());
 
         eyes.get().setApiKey(getApiKey());
     }
@@ -58,7 +58,7 @@ public class ApplitoolsApi
 
     public static void setupForTest()
     {
-        setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).macthLevel());
+        setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).matchLevel());
 
         eyes.get().setApiKey(getApiKey());
     }
