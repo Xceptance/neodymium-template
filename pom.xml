@@ -86,7 +86,7 @@
 							<properties>
 								<property>
 									<name>listener</name>
-									<value>io.qameta.allure.junit4.AllureJunit4</value>
+									<value>util.applitools.TestListener,io.qameta.allure.junit4.AllureJunit4</value>
 								</property>
 							</properties>
 						</configuration>
@@ -107,7 +107,8 @@
 								<include>template/cucumber/tests/RunAllFeaturesTest.java</include>
 							</includes>
 							<systemPropertyVariables>
-								<cucumber.options>--plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm</cucumber.options>
+								<cucumber.options>--plugin
+									io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm</cucumber.options>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>

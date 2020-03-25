@@ -9,15 +9,15 @@ import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 
-import com.xceptance.neodymium.NeodymiumRunner;
 import com.xceptance.neodymium.module.statement.browser.multibrowser.Browser;
 
 import util.applitools.ApplitoolsApi;
+import util.applitools.TestRunner;
 
 /**
  * @author pfotenhauer
  */
-@RunWith(NeodymiumRunner.class)
+@RunWith(TestRunner.class)
 @Browser("Chrome_1024x768")
 public abstract class AbstractTest
 {

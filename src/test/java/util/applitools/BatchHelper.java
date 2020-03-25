@@ -11,15 +11,19 @@ import java.util.Properties;
 
 public class BatchHelper
 {
-    private static String filename = "target/batch.properties";
+    private static final String filename = "target/batch.properties";
 
     public static String addBatch(String batchName)
     {
         String batchId = "";
         try
         {
-            new File(filename.replaceAll("batch", batchName)).createNewFile();
-            OutputStream output = new FileOutputStream(filename.replaceAll("batch", batchName));
+            final String batchFilename = filename.replaceAll("batch", batchName);
+            if (new File(batchFilename).createNewFile())
+            {
+                TestListener.filenames.add(batchFilename);
+            }
+            OutputStream output = new FileOutputStream(batchFilename);
 
             Properties prop = new Properties();
             batchId = batchName + new Date().toString();
@@ -41,8 +45,12 @@ public class BatchHelper
         String batchId = null;
         try
         {
-            new File(filename.replaceAll("batch", batchName)).createNewFile();
-            InputStream input = new FileInputStream(filename.replaceAll("batch", batchName));
+            final String batchFilename = filename.replaceAll("batch", batchName);
+            if (new File(batchFilename).createNewFile())
+            {
+                TestListener.filenames.add(batchFilename);
+            }
+            InputStream input = new FileInputStream(batchFilename);
             Properties prop = new Properties();
 
             // load a properties file
@@ -54,6 +62,5 @@ public class BatchHelper
             ex.printStackTrace();
         }
         return batchId;
-
     }
 }
