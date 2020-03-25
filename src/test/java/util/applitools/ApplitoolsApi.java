@@ -46,7 +46,7 @@ public class ApplitoolsApi
             batch.setId(batchId);
         }
         eyes.get().setBatch(batch);
-        setupForTest();
+        setupForSingleTest();
     }
 
     public static void addProppertiy(String name, String value)
@@ -54,7 +54,7 @@ public class ApplitoolsApi
         eyes.get().addProperty(name, value);
     }
 
-    public static void setupForTest()
+    public static void setupForSingleTest()
     {
         setMatchLevel(ConfigFactory.create(ApplitoolsConfiguration.class).matchLevel());
 
