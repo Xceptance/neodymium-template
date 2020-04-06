@@ -2,8 +2,8 @@ package template.cucumber.util;
 
 import com.xceptance.neodymium.util.WebDriverUtils;
 
-import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 
 public class DriverHooks
