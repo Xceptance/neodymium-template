@@ -127,7 +127,7 @@ else
 fi
 
 #
-mvn --batch-mode "${test_case_selector}" ${webdriver} ${headless} -DfailIfNoTests=false test allure:report
+mvn --batch-mode "${test_case_selector}" ${webdriver} -DfailIfNoTests=false test allure:report
 
 #
 if [[ "${DEV_BROWSER_PROPERTIES}" == "remove" ]]; then
