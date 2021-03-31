@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+
+  neodymium-docker-run:
+
+    build:
+      context: .
+
+    volumes:
+      - type: bind
+        source: ../
+        target: /var/run/neodymium-docker-run
+
+    command: ${TESTCASE}
+
+    env_file:
+      - ./testcase-selection.env
+
+    network_mode: "host"
+
+    shm_size: '1gb'
