@@ -1,11 +1,9 @@
 package template.pageobjects.pages;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.matchText;
 import static com.codeborne.selenide.Condition.visible;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -21,9 +19,10 @@ public class HomePage extends AbstractPageObject
      */
     @Override
     @Step("ensure this is a homepage")
-    public void isExpectedPage()
+    public HomePage isExpectedPage()
     {
         $("#service-areas").should(exist);
+        return this;
     }
 
     /*
