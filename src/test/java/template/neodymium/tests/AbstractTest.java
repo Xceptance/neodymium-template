@@ -1,6 +1,3 @@
-/**
- * 
- */
 package template.neodymium.tests;
 
 import org.junit.runner.RunWith;

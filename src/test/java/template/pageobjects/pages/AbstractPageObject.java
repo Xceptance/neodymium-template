@@ -1,6 +1,3 @@
-/**
- * 
- */
 package template.pageobjects.pages;
 
 import template.pageobjects.components.Title;
