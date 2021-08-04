@@ -21,6 +21,7 @@ public class HomePage extends AbstractPageObject
     @Step("ensure this is a homepage")
     public HomePage isExpectedPage()
     {
+        super.isExpectedPage();
         $("#service-areas").should(exist);
         return this;
     }
