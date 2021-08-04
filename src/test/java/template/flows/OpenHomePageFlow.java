@@ -18,6 +18,6 @@ public class OpenHomePageFlow
 
         // navigate to the home page
         open(Neodymium.configuration().url());
-        return new HomePage();
+        return new HomePage().isExpectedPage();
     };
 }
