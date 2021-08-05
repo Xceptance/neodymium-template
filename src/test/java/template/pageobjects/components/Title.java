@@ -16,7 +16,7 @@ public class Title extends AbstractComponent
     }
 
     @Then("^The page title should be \"([^\"]*)\"$")
-    @Step("validate title matches '{title}'")
+    @Step("validate title matches: '{title}'")
     public void validateTitle(String title)
     {
         SelenideAddons.wrapAssertionError(() -> {
