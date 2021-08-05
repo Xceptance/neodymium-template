@@ -12,11 +12,6 @@ import io.qameta.allure.Step;
 
 public class HomePage extends AbstractPageObject
 {
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.xceptance.scripting.selenide.page.AbstractPage()
-     */
     @Override
     @Step("ensure this is a homepage")
     public HomePage isExpectedPage()
@@ -25,11 +20,6 @@ public class HomePage extends AbstractPageObject
         return this;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see template.pageObjects.pages.AbstractPageObject()
-     */
     @Then("^The home page should have heading, carousel, services and the company button$")
     @Step("validate the home page")
     public void validateStructure()
