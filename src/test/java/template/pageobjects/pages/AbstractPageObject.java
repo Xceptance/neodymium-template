@@ -9,10 +9,9 @@ public abstract class AbstractPageObject
 {
     public Title title = new Title();
 
-    abstract public void validateStructure();
-
-    public AbstractPageObject isExpectedPage()
+    public void validateStructure()
     {
-        return this;
     }
+
+    public abstract AbstractPageObject isExpectedPage();
 }

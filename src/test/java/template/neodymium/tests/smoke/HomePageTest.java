@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import com.xceptance.neodymium.util.Neodymium;
 
-import template.flows.OpenHomePageFlow;
+import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
 
 public class HomePageTest extends AbstractTest
@@ -13,7 +13,7 @@ public class HomePageTest extends AbstractTest
     public void testVisitingHomepage()
     {
         // Goto the home page
-        var homePage = OpenHomePageFlow.flow();
+        var homePage = OpenPageFlows.openHomePage();
 
         // basic validation
         homePage.validateStructure();
