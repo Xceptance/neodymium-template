@@ -24,6 +24,9 @@ public class HomePage extends AbstractPageObject
     @Step("validate the home page")
     public void validateStructure()
     {
+        // Calls validateStructure of the parent class to validate basic things
+        super.validateStructure();
+        
         // Verifies the company Logo and name are visible.
         $("#navigation .navbar-brand a[title=Home]").shouldBe(visible);
 
