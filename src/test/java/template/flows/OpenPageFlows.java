@@ -6,18 +6,20 @@ import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 import static com.codeborne.selenide.Selenide.open;
 
 import io.cucumber.java.en.And;
+import io.qameta.allure.Step;
 import template.pageobjects.pages.HomePage;
 
-public class OpenHomePageFlow
+public class OpenPageFlows
 {
     @And("^I navigate to the home page of the project$")
-    public static HomePage flow()
+    @Step("clear cookies and open home page")
+    public static HomePage openHomePage()
     {
         // clear browser cookies to remove old data
         clearBrowserCookies();
 
         // navigate to the home page
         open(Neodymium.configuration().url());
-        return new HomePage();
+        return new HomePage().isExpectedPage();
     };
 }

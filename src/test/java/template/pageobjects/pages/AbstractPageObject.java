@@ -1,6 +1,3 @@
-/**
- * 
- */
 package template.pageobjects.pages;
 
 import template.pageobjects.components.Title;
@@ -12,9 +9,9 @@ public abstract class AbstractPageObject
 {
     public Title title = new Title();
 
-    abstract public void validateStructure();
-
-    public void isExpectedPage()
+    public void validateStructure()
     {
     }
+
+    public abstract AbstractPageObject isExpectedPage();
 }

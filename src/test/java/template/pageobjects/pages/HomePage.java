@@ -1,11 +1,9 @@
 package template.pageobjects.pages;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.matchText;
 import static com.codeborne.selenide.Condition.visible;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -14,23 +12,14 @@ import io.qameta.allure.Step;
 
 public class HomePage extends AbstractPageObject
 {
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.xceptance.scripting.selenide.page.AbstractPage()
-     */
     @Override
     @Step("ensure this is a homepage")
-    public void isExpectedPage()
+    public HomePage isExpectedPage()
     {
         $("#service-areas").should(exist);
+        return this;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see template.pageObjects.pages.AbstractPageObject()
-     */
     @Then("^The home page should have heading, carousel, services and the company button$")
     @Step("validate the home page")
     public void validateStructure()
