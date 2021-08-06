@@ -1,0 +1,22 @@
+[
+    {
+        "id": "76543",
+        "number": 12345,
+        "isActive": false
+    },
+    {
+        "id": "2345",
+        "number": 12345,
+        "isActive": false
+    },
+    {
+        "id": "76543",
+        "number": 9876,
+        "isActive": false
+    },
+    {
+        "id": "76543",
+        "number": 12345,
+        "isActive": true
+    }
+]

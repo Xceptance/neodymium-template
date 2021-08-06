@@ -1,13 +1,13 @@
 package template.pageobjects.pages;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.matchText;
 import static com.codeborne.selenide.Condition.visible;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+
+import com.codeborne.selenide.Selenide;
 
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Step;
@@ -21,9 +21,10 @@ public class HomePage extends AbstractPageObject
      */
     @Override
     @Step("ensure this is a homepage")
-    public void isExpectedPage()
+    public HomePage isExpectedPage()
     {
         $("#service-areas").should(exist);
+        return this;
     }
 
     /*
@@ -57,4 +58,12 @@ public class HomePage extends AbstractPageObject
         // Verifies the company button is there.
         $$("#xlt-background .container p.lead > a.btn-primary").shouldHave(sizeGreaterThan(0));
     }
+
+    @Step("go to about us page")
+    public AboutUsPage goToAboutUs()
+    {
+        Selenide.$("#xlt-background a.btn-primary").click();
+        return new AboutUsPage().isExpectedPage();
+    }
+
 }

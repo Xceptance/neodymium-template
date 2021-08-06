@@ -1,4 +1,11 @@
 default:
   homepage:
-    title: Xceptance - The Software Testing Experts 
-   
+    title: "Xceptance - The Software Testing Experts"
+  aboutUsPage:
+    title: "Xceptance - Who we are"
+  twitterPage:
+    title: "Xceptance"
+  teamPage:
+    headline: "Behind the Scenes"
+    
+    

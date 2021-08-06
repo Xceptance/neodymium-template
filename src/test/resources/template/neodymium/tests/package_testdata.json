@@ -1,0 +1,8 @@
+[
+    {
+        "employee_id": "12345",
+        "name": "Doshi",
+        "salary": 2000,
+        "isActive": true
+    }
+]

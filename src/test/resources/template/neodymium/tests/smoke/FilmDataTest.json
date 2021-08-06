@@ -1,0 +1,37 @@
+[
+    {
+        "testId": "First Movie",
+        "id": "12345",
+        "film": {
+            "filmName": "Fight Club",
+            "film_id": "2324",
+              "yearOfPublication":1992,
+            "actors": [
+                {
+                    "name": "Brad Pitt",
+                    "tattoos":false
+                },
+                {
+                    "name": "Johny Depp"
+                }
+            ]
+        }
+    },
+    {
+        "testId": "Second Movie",
+        "id": "9887",
+        "film": {
+            "filmName": "Black Widow",
+            "film_id": "2324",
+            "yearOfPublication":2021,
+            "actors": [
+                {
+                    "name": "Scarlett Johansson"
+                },
+                {
+                    "name": "Roy Winstone"
+                }
+            ]
+        }
+    }
+]
