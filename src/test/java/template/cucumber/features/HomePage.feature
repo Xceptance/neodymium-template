@@ -10,4 +10,4 @@ Feature: Home page
 
     Examples: 
       | browser         |
-      | Chrome_1024x768 |
+      | Chrome_1400x1000 |
