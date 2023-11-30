@@ -2,19 +2,16 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.xceptance.neodymium.project</groupId>
   <artifactId>neodymium-template</artifactId>
   <version>4.1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-
   <name>neodymium-template</name>
   <url>https://github.com/Xceptance/neodymium-template</url>
   <organization>
     <name>Xceptance Software Technologies</name>
     <url>https://www.xceptance.com/</url>
   </organization>
-
   <licenses>
     <license>
       <name>MIT</name>
@@ -22,7 +19,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
@@ -32,7 +28,6 @@
     <allure.version>2.10.0</allure.version>
     <neodymium.version>4.1.5</neodymium.version>
   </properties>
-
   <build>
     <plugins>
       <plugin>
@@ -83,7 +78,6 @@
       </plugin>
     </plugins>
   </build>
-
   <profiles>
     <profile>
       <id>java</id>
@@ -129,8 +123,12 @@
       </build>
     </profile>
   </profiles>
-
   <dependencies>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>selenium </artifactId>
+      <version>1.19.0</version>
+    </dependency>
     <dependency>
       <groupId>com.xceptance</groupId>
       <artifactId>neodymium-library</artifactId>
@@ -138,7 +136,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <reporting>
     <plugins>
       <plugin>
