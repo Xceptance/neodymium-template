@@ -2,8 +2,8 @@ package template.neodymium.tests;
 
 import org.junit.runner.RunWith;
 
-import com.xceptance.neodymium.NeodymiumRunner;
-import com.xceptance.neodymium.module.statement.browser.multibrowser.Browser;
+import com.xceptance.neodymium.common.browser.Browser;
+import com.xceptance.neodymium.junit4.NeodymiumRunner;
 
 /**
  * @author pfotenhauer

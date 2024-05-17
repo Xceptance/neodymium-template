@@ -1,6 +1,6 @@
 package template.neodymium.tests.smoke;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.xceptance.neodymium.util.Neodymium;
 
