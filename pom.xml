@@ -135,6 +135,15 @@
     </profile>
   </profiles>
 
+  <repositories>
+    <repository>
+      <id>xceptance-snapshot-repository</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots
+      </url>
+    </repository>
+  </repositories>
+
+
   <dependencies>
     <dependency>
       <groupId>com.xceptance</groupId>
