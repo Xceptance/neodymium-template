@@ -31,6 +31,9 @@
     <aspectj.version>1.9.21</aspectj.version>
     <allure.version>2.12.0</allure.version>
     <neodymium.version>5.0.0</neodymium.version>
+    <maven.javadoc.version>3.2.0</maven.javadoc.version>
+    <log4j.version>2.23.1</log4j.version>
+    <junit.vintage.version>5.10.2</junit.vintage.version>
   </properties>
 
   <build>
@@ -67,7 +70,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>${maven.javadoc.version}</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -128,7 +131,7 @@
               <dependency>
                 <groupId>org.junit.vintage</groupId>
                 <artifactId>junit-vintage-engine</artifactId>
-                <version>5.10.2</version>
+                <version>${junit.vintage.version}</version>
               </dependency>
              </dependencies>
           </plugin>
@@ -151,6 +154,13 @@
       <groupId>com.xceptance</groupId>
       <artifactId>neodymium-library</artifactId>
       <version>${neodymium.version}</version>
+      <scope>test</scope>
+    </dependency>
+   
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j2-impl</artifactId>
+      <version>${log4j.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
