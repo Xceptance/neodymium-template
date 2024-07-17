@@ -62,5 +62,10 @@ If you like you can also clean up the Surefire configuration in the `pom.xml` by
 
 In case you want to use both approaches you are free to do so and take advantage of both of their strengths.
 
+# JUnit 5 vs. JUnit 4
+With Version 5.0.0 of Neodymium we introduced JUnit 5 as our standard way of doing things. But since JUnit 4 is still very popular we decided to keep a backwards compability to JUnit 4. Hot to use this can be seen in the branch `update-to-neo-5-junit-4`
+
+
+
 ## License
 MIT
