@@ -1,7 +1,6 @@
 package template.neodymium.tests.smoke;
 
-import org.junit.Test;
-
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
 
 import template.flows.OpenPageFlows;
@@ -9,7 +8,7 @@ import template.neodymium.tests.AbstractTest;
 
 public class HomePageTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     public void testVisitingHomepage()
     {
         // Goto the home page and perform a short validation that we are on the correct page

@@ -5,7 +5,7 @@
 
   <groupId>com.xceptance.neodymium.project</groupId>
   <artifactId>neodymium-template</artifactId>
-  <version>4.1.0-SNAPSHOT</version>
+  <version>5.0.1</version>
   <packaging>jar</packaging>
 
   <name>neodymium-template</name>
@@ -25,12 +25,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <surefire.version>2.22.2</surefire.version>
-    <aspectj.version>1.9.6</aspectj.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <surefire.version>3.2.5</surefire.version>
+    <aspectj.version>1.9.21</aspectj.version>
     <allure.version>2.12.0</allure.version>
-    <neodymium.version>4.1.5</neodymium.version>
+    <neodymium.version>5.0.1</neodymium.version>
+    <maven.javadoc.version>3.2.0</maven.javadoc.version>
+    <log4j.version>2.23.1</log4j.version>
+    <junit.vintage.version>5.10.2</junit.vintage.version>
   </properties>
 
   <build>
@@ -68,7 +71,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>${maven.javadoc.version}</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -79,7 +82,7 @@
           </execution>
         </executions>
         <configuration>
-          <source>11</source>
+          <source>17</source>
         </configuration>
       </plugin>
     </plugins>
@@ -125,17 +128,40 @@
                 <include>template/cucumber/tests/RunAllFeaturesTest.java</include>
               </includes>
             </configuration>
+            <dependencies>
+              <dependency>
+                <groupId>org.junit.vintage</groupId>
+                <artifactId>junit-vintage-engine</artifactId>
+                <version>${junit.vintage.version}</version>
+              </dependency>
+             </dependencies>
           </plugin>
         </plugins>
       </build>
     </profile>
   </profiles>
 
+  <repositories>
+    <repository>
+      <id>xceptance-snapshot-repository</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots
+      </url>
+    </repository>
+  </repositories>
+
+
   <dependencies>
     <dependency>
       <groupId>com.xceptance</groupId>
       <artifactId>neodymium-library</artifactId>
       <version>${neodymium.version}</version>
+      <scope>test</scope>
+    </dependency>
+   
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j2-impl</artifactId>
+      <version>${log4j.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
