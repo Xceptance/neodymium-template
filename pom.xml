@@ -65,6 +65,7 @@
         <version>${allure.version}</version>
         <configuration>
           <reportVersion>2.27.0</reportVersion>
+          <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
         </configuration>
       </plugin>
       <plugin>
