@@ -1,32 +1,35 @@
 package template.pageobjects.pages;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.matchText;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
+import com.xceptance.neodymium.util.SelenideAddons;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Step;
 
-public class HomePage extends AbstractPageObject
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
+public class HomePage extends AbstractPageObject<HomePage>
 {
     @Override
     @Step("ensure this is a homepage")
-    public HomePage isExpectedPage()
+    public HomePage reached()
     {
-        $("#service-areas").should(exist);
-        return this;
+        return super.reached();
+    }
+
+    @Override
+    @Step("check if this is a homepage")
+    public boolean isExpectedPage()
+    {
+        SelenideAddons.optionalWaitUntilCondition($("#service-areas"), exist);
+        return $("#service-areas").exists();
     }
 
     @Then("^The home page should have heading, carousel, services and the company button$")
     @Step("validate the home page")
-    public void validateStructure()
+    public HomePage validateStructure()
     {
-        // Calls validateStructure of the parent class to validate basic things
-        super.validateStructure();
-        
         // Verifies the company Logo and name are visible.
         $("#navigation .navbar-brand a[title=Home]").shouldBe(visible);
 
@@ -48,5 +51,7 @@ public class HomePage extends AbstractPageObject
 
         // Verifies the company button is there.
         $$("#xlt-background .container p.lead > a.btn-primary").shouldHave(sizeGreaterThan(0));
+
+        return this;
     }
 }

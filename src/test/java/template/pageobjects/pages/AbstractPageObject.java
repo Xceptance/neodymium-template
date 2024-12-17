@@ -1,17 +1,25 @@
 package template.pageobjects.pages;
 
+import com.xceptance.neodymium.util.SelenideAddons;
+import org.junit.jupiter.api.Assertions;
 import template.pageobjects.components.Title;
 
 /**
  * @author pfotenhauer
  */
-public abstract class AbstractPageObject
+public abstract class AbstractPageObject<T extends AbstractPageObject<T>>
 {
     public Title title = new Title();
 
-    public void validateStructure()
+    public abstract boolean isExpectedPage();
+
+    public T reached()
     {
+        SelenideAddons.wrapAssertionError(() -> {
+            Assertions.assertTrue(isExpectedPage(), "Page could not be identified");
+        });
+        return (T) this;
     }
 
-    public abstract AbstractPageObject isExpectedPage();
+    public abstract T validateStructure();
 }
