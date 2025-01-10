@@ -1,18 +1,32 @@
 package template.pageobjects.components;
 
-import org.junit.Assert;
-
 import com.xceptance.neodymium.util.SelenideAddons;
+import io.cucumber.java.en.Then;
+import io.qameta.allure.Step;
+import org.junit.Assert;
 
 import static com.codeborne.selenide.Selenide.title;
 
-import io.cucumber.java.en.Then;
-import io.qameta.allure.Step;
-
-public class Title extends AbstractComponent
+public class Title extends AbstractComponent<Title>
 {
-    public void isComponentAvailable()
+    @Override
+    @Step("ensure title is available")
+    public Title assertComponentAvailable()
     {
+        return super.assertComponentAvailable();
+    }
+
+    @Override
+    @Step("check if title is available")
+    public boolean isComponentAvailable()
+    {
+        return true;
+    }
+
+    @Override
+    public Title validateStructure()
+    {
+        return this;
     }
 
     @Then("^The page title should be \"([^\"]*)\"$")
