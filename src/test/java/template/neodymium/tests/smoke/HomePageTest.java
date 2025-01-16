@@ -2,7 +2,6 @@ package template.neodymium.tests.smoke;
 
 import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
-
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
 

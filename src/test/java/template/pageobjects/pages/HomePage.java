@@ -28,7 +28,7 @@ public class HomePage extends AbstractPageObject<HomePage>
         return $("#teaser").exists();
     }
 
-    @Then("^The home page should have heading, carousel, services and the company button$")
+    @Override
     @Step("validate the home page")
     public HomePage validateStructure()
     {
@@ -52,5 +52,12 @@ public class HomePage extends AbstractPageObject<HomePage>
         $$("p.lead > a").shouldHave(sizeGreaterThan(0));
 
         return this;
+    }
+
+    @Then("^The home page should have heading, carousel, services and the company button$")
+    @Step("validate the home page")
+    public HomePage validateHomePageStructure()
+    {
+        return this.validateStructure();
     }
 }
