@@ -4,5 +4,6 @@
 .settings
 build
 /.allure/
+/allure-results/
 dev-*.properties
 .idea
